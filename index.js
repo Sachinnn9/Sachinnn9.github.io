@@ -26,7 +26,5 @@ function startAnimation() {
   } else {
     document.addEventListener('DOMContentLoaded', () => {
       startAnimation();
-    })
-  }
-}());
+
 
