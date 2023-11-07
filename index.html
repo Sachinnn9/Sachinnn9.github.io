@@ -4,9 +4,7 @@
 <head>
     <style>
         body {
-            background-image: url("https://i.pinimg.com/originals/35/44/d0/3544d0bec6f4bc046f26640e4c6f3841.gif");
-            background-size: cover;
-            text-align: center;
+            
         }
         
         .social-buttons {
@@ -33,16 +31,39 @@
             text-decoration: none;
             border-radius: 5px;
         }
+        html, body{
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  background: #000;
+        }
     </style>
 </head>
 <body>
     <div class="profile-picture"></div>
-    
+    <canvas id="canvas"></canvas>
     <div class="social-buttons">
         <a class="social-button" href="https://www.facebook.com">Facebook</a>
         <a class="social-button" href="https://www.instagram.com">Instagram</a>
         <a class="social-button" href="https://www.whatsapp.com">WhatsApp</a>
         <a class="social-button" href="https://www.telegram.org">Telegram</a>
     </div>
+    <script> 
+        var ps = p.fieldSize = Math.abs(p.vel.x + p.vel.y)*particleSize + 0.3;
+    ctx.fillStyle = "hsl("+(hueBase + p.hue + ((p.vel.x + p.vel.y)*hueRange))+", 100%, 50%)";
+    ctx.fillRect(p.pos.x, p.pos.y, ps, ps);
+    let pos = p.pos.div(fieldSize);
+    let v;
+    if (pos.x >= 0 && pos.x < columns && pos.y >= 0 && pos.y < rows) {
+      v = field[Math.floor(pos.x)][Math.floor(pos.y)];
+    }
+    p.move(v);
+    p.wrap();
+  });
+}
+
+draw();
+    
+    </script>
 </body>
 </html>
