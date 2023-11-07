@@ -27,4 +27,6 @@ function startAnimation() {
     document.addEventListener('DOMContentLoaded', () => {
       startAnimation();
 
-
+    })
+  }
+}());
